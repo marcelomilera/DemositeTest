@@ -8,25 +8,29 @@ import org.openqa.selenium.support.FindBy;
 public class DemositeLoginPage {
     WebDriver driver;
 
-    @FindBy(id="title")
-    WebElement txtTitle;
+    @FindBy(id="user_login")
+    WebElement txtUser;
 
-    @FindBy(css = "html")
-    WebElement frameText;
+    @FindBy(id = "user_pass")
+    WebElement txtPass;
+
+    @FindBy(id = "wp-submit")
+    WebElement btnSubmit;
 
     public DemositeLoginPage(WebDriver driver){
         this.driver = driver;
     }
 
-    public void typeTitle(String title){
-        this.txtTitle.sendKeys(title);
+    public void typeUser(String user){
+        this.txtUser.sendKeys(user);
     }
 
-    public void typeText(String text){
-        this.frameText.sendKeys(text);
+    public void typePass(String pass){
+        this.txtPass.sendKeys(pass);
     }
-    public void insertPost(String title, String text){
-        this.typeTitle(title);
-        this.typeText(text);
+    public void loginUser(String user, String pass){
+        this.typeUser(user);
+        this.typePass(pass);
+        btnSubmit.click();
     }
 }
