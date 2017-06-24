@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class DemositeTest {
+public class DemositeTestLogin {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
