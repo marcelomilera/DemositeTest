@@ -52,4 +52,4 @@ Scenario 02:,DemositeTestPosts,,,
 ,,,,
 ID_TESTCASE,SUMMARY,PRIORITY,STEPS,EXPECTED RESULT
 TC007,Save a new post,CRITICAL,1. REPEAT STEPS 1-4 FROM TC001,
-,,,"2. ENTER "sgp demoPost02" TO "title" TEXT FIELD",
+,,,"2. ENTER "sgp demoPost02" TO "title" TEXT FIELD",""
