@@ -51,4 +51,5 @@ TC006,MOVE PAGES TO TRASH,MAJOR,1. LOAD WEBPAGE: http://demosite.center/wordpres
 Scenario 02:,DemositeTestPosts,,,
 ,,,,
 ID_TESTCASE,SUMMARY,PRIORITY,STEPS,EXPECTED RESULT
-TC007,Save a new post,CRITICAL,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page,"VERIFY THAT THE TEXT ""Pages Add New"" APPEAR"
+TC007,Save a new post,CRITICAL,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-login.php,
+,,,"2. ENTER ""Admin"" TO USERNAME TEXT FIELD",
