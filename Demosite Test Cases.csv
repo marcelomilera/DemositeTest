@@ -46,4 +46,6 @@ TC006,MOVE PAGES TO TRASH,MAJOR,1. LOAD WEBPAGE: http://demosite.center/wordpres
 ,,,"3. CLICK ON COMBOBOX ""Bulk Actions"" AND SELECT OPTION ""Move to trash""","VERIFY THAT THE POP UP TEXT ""Item moved to the Trash. Undo"" APPEAR"
 ,,,"4. CLICK ON LINK ""Trash""",VERIFY IF APPEAR THE SELECTED PAGE
 ,,,"5. CLICK ON ""Empty Trash"" BUTTON",CLEAR TRASH
-,,,
+,,,,
+,,,,
+Scenario 02:,DemositeTestPosts,,,
