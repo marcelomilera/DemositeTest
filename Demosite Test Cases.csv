@@ -49,3 +49,5 @@ TC006,MOVE PAGES TO TRASH,MAJOR,1. LOAD WEBPAGE: http://demosite.center/wordpres
 ,,,,
 ,,,,
 Scenario 02:,DemositeTestPosts,,,
+,,,,
+ID_TESTCASE,SUMMARY,PRIORITY,STEPS,EXPECTED RESULT
