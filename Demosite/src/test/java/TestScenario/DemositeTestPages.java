@@ -1,12 +1,16 @@
-import java.util.regex.Pattern;
+package TestScenario;
+
 import java.util.concurrent.TimeUnit;
+
+import PageObject.DemositeLoginPage;
+import PageObject.DemositePagesPage;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+
 /**
  * Created by Cajas on 27/06/2017.
  */
