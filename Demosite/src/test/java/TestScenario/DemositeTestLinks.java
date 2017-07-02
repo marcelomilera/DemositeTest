@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
@@ -114,12 +115,19 @@ public class DemositeTestLinks extends DemositeTestLogin{
         // Login
         login();
 
+        // Delete all categories
         demositeLinkPage.deleteAllCategories();
 
+        // Verify expected results
         try {
-            assertTrue( driver.findElement(By.linkText("Test Category")).isDisplayed());
+            Boolean categoryExists = driver.findElement(By.linkText("Test Category")).isDisplayed();
+            if (categoryExists)
+                verificationErrors.append("Test Category still exists");
+        }
+        catch (NoSuchElementException e){
             assertTrue( demositeLinkPage.verifyItemsCount("1 item"));
-        } catch (Error e) {
+        }
+        catch (Error e) {
             verificationErrors.append(e.toString());
         }
     }

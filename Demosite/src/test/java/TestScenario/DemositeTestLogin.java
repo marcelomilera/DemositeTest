@@ -20,11 +20,11 @@ public class DemositeTestLogin {
         baseUrl = "http://demosite.center";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         demositeLoginPage = PageFactory.initElements(driver, DemositeLoginPage.class);
-        driver.get(baseUrl + "/wordpress/wp-login.php");
     }
 
     @Test
     public void testLogin() throws Exception {
+        driver.get(baseUrl + "/wordpress/wp-login.php");
 
         demositeLoginPage.loginUser("admin", "demo123");
 
@@ -41,9 +41,7 @@ public class DemositeTestLogin {
     }
 
     public void login() throws Exception {
-
         demositeLoginPage.loginUser("admin", "demo123");
-
     }
 
     @After
