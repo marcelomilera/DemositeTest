@@ -1,85 +1,125 @@
-Test Case Design,,,,
-,,,,
-Project name:,Demosite,,,
-,,,,
-Scenario 01:,DemositeTestLogin,,,
-,,,,
-ID_TESTCASE,SUMMARY,PRIORITY,STEPS,EXPECTED RESULT
-TC001,,CRITICAL,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-login.php,SHOW THE LOG IN PAGE
-,,,"2. ENTER ""Admin"" TO USERNAME TEXT FIELD","VERIFY VALUE ""Admin"" IS ON THE USERNAME TEXT FIELD"
-,,,"3. ENTER ""Demo123"" TO PASSWORD TEXT FIELD","VERIFY VALUE ""Demo123"" IS ON THE PASSWORD TEXT FIELD"
-,,,"4. CLICK ON ""Log in"" BUTTON",VERIFY USERNAME AND PASSWORD IF THEY EXIST IN THE DATABASE
-,,,,
-,,,,
-Scenario 02:,DemositeTestPages,,,
-,,,,
-ID_TESTCASE,SUMMARY,PRIORITY,STEPS,EXPECTED RESULT
-TC002,ADD DRAFT PAGES,CRITICAL,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page,"VERIFY THAT THE TEXT ""Pages Add New"" APPEAR"
-,,,"2. CLICK ON LINK ""Add New""","VERIFY THAT THE TEXT ""Add New Page"" APPEAR"
-,,,"3. ENTER ""Page 1"" INTO TITLE TEXT FIELD","VERIFY VALUE ""Page 1"" IS DISPLAYED ON THE TITLE TEXT FIELD"
-,,,"4. ENTER ""testing page 1 here"" INTO CONTENT TEXT FIELD","VERIFY VALUE ""testing page 1 here"" IS DISPLAYED ON THE CONTENT TEXT FIELD"
-,,,"5. CLICK ON ""Save Draft"" BUTTON","VERIFY THAT THE POP UP TEXT ""Page draft updated. Preview page"" APPEAR"
-,,,"6. CLICK ON MENU LINK ""Pages""",VERIFY IF THE DRAFT PAGE WAS CREATED
-,,,"7. CLICK ON LINK ""Drafts""",VERIFY IF THE DRAFT PAGE WAS CREATED AT DRAFT SECTION
-,,,,
-TC003,ADD PUBLISHED PAGES,CRITICAL,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page,"VERIFY THAT THE TEXT ""Pages Add New"" APPEAR"
-,,,"2. CLICK ON LINK ""Add New""","VERIFY THAT THE TEXT ""Add New Page"" APPEAR"
-,,,"3. ENTER ""Post 2"" INTO TITLE TEXT FIELD","VERIFY VALUE ""Post 2"" IS DISPLAYED ON THE TITLE TEXT FIELD"
-,,,"4. ENTER ""Testing post 2 here"" INTO CONTENT TEXT FIELD","VERIFY VALUE ""Testing post 2 here"" IS DISPLAYED ON THE CONTENT TEXT FIELD"
-,,,"5. CLICK ON ""Publish"" BUTTON","VERIFY THAT THE POP UP TEXT ""Page published. View page"" APPEAR"
-,,,"6. CLICK ON MENU LINK ""Pages""",VERIFY IF THE PUBLISH PAGE WAS CREATED
-,,,"7. CLICK ON LINK ""Published""",VERIFY IF THE PUBLISH PAGE WAS CREATED AT PUBLISHED SECTION
-,,,,
-TC004,FILTER PAGES BY DATE (JULY 2012),MAJOR,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page,"VERIFY THAT THE TEXT ""Pages Add New"" AND THE OPTION ""July 2012"" OF COMBOBOX ""Show all dates"" APPEAR"
-,,,"2. CLICK ON COMBOBOX ""Show all dates"" AND SELECT OPTION ""July 2012""","VERIFY PAGE ""Sample Page"" APPEAR AND VERIFY DATE OF CREATION"
-,,,,
-TC005,EDIT PAGES,MAJOR,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page,"VERIFY THAT THE TEXT ""Pages Add New"" AND THE OPTION ""Edit"" OF COMBOBOX ""Bulk Actions"" APPEAR"
-,,,2. CLICK ON THE FIRST RADIOBUTTON,VERIFY IF THE RADIOBUTTON IS SELECTED
-,,,"3. CLICK ON COMBOBOX ""Bulk Actions"" AND SELECT OPTION ""Edit""","VERIFY LABEL TEXT ""BULK EDIT"" APPEAR AND THE FORM"
-,,,"4. CLICK ON AUTHOR COMBOBOX AND SELECT OPTION ""admin""",VERIFY THE AUTHOR COMBOBOX IS CHANGED
-,,,"5. CLICK ON STATUS COMBOBOX AND SELECT OPTION ""Do not allow""",VERIFY THE STATUS COMBOBOX IS CHANGED
-,,,6. CLICK ON EDIT BUTTON,"VERIFY THAT THE POP UP TEXT ""1 post updated."" APPEAR"
-,,,,
-,,,,
-TC006,MOVE PAGES TO TRASH,MAJOR,1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page,"VERIFY THAT THE TEXT ""Pages Add New"" AND THE OPTION ""Edit"" OF COMBOBOX ""Bulk Actions"" APPEAR"
-,,,2. CLICK ON THE FIRST RADIOBUTTON,VERIFY IF THE RADIOBUTTON IS SELECTED
-,,,"3. CLICK ON COMBOBOX ""Bulk Actions"" AND SELECT OPTION ""Move to trash""","VERIFY THAT THE POP UP TEXT ""Item moved to the Trash. Undo"" APPEAR"
-,,,"4. CLICK ON LINK ""Trash""",VERIFY IF APPEAR THE SELECTED PAGE
-,,,"5. CLICK ON ""Empty Trash"" BUTTON",CLEAR TRASH
-,,,,
-,,,,
-Scenario 02:,DemositeTestPosts,,,
-,,,,
-ID_TESTCASE,SUMMARY,PRIORITY,STEPS,EXPECTED RESULT
-TC007,SAVE NEW POST,CRITICAL,1. REPEAT STEPS 1-4 FROM TC001,"VERIFY THAT THE TEXT ""sgp demoPost02"" APPEAR IN THE COLUMN Title"
-,,,"2. ENTER ""sgp demoPost02"" TO ""title"" TEXT FIELD",
-,,,"3. ENTER ""this is the demo post 02"" TO ""content"" TEXT FIELD",
-,,,"4. CLICK ON ""save-post"" BUTTON",
-,,,"5. CLICK ON ""All Posts"" TEXT LINK",
-,,,"6. CLICK ON DRAFTS TEXT LINK",
-,,,,
-TC008,PUBLISH NEW POST,CRITICAL,1. REPEAT STEPS 1-4 FROM TC001,"VERIFY THAT THE TEXT ""sgpDemoPublishPost03"" APPEAR IN THE COLUMN Title"
-,,,"2. ENTER ""sgpDemoPublishPost03"" TO ""title"" TEXT FIELD",
-,,,"3. ENTER ""this is the demo post 03"" TO ""content"" TEXT FIELD",
-,,,"4. CLICK ON ""publish"" BUTTON",
-,,,"5. CLICK ON ""All Posts"" TEXT LINK",
-,,,"6. CLICK ON PUBLISHED TEXT LINK",
-,,,,
-TC009,CREATE NEW POST CATEGORY,CRITICAL,1. REPEAT STEPS 1-4 FROM TC001,"VERIFY THAT THE TEXT ""CategoryDemo01"" APPEAR IN THE COLUMN NAME"
-,,,"2. CLICK ON ""Categories"" TEXT LINK",
-,,,"3. ENTER ""CategoryDemo01"" TO ""tag-name"" TEXT FIELD",
-,,,"4. ENTER ""catdemo01"" TO ""tag-slug"" TEXT FIELD",
-,,,"5. SELECT ""None"" FROM ""parent"" COMBOBOX",
-,,,"6. ENTER ""this is the category demo 01"" TO ""tag-description"" TEXT FIELD",
-,,,"7. CLICK ON ""submit"" BUTTON",
-,,,,
-TC010,SEND EXISTING POST TO TRASH,MAJOR,1. REPEAT STEPS 1-4 FROM TC001,"VERIFY THAT THE TEXT ""Item moved to the Trash. Undo"" APPEAR IN CSS ELEMENT ""#message > p"""
-,,,"2. CLICK ON ""All Posts"" TEXT LINK",
-,,,"3. CLICK ON FIRST RADIOBUTTON",
-,,,"4. SELECT ""Move to Trash"" FROM ""action"" COMBOBOX",
-,,,"5. CLICK ON ""doaction"" BUTTON",
-,,,,
-TC011,FILTER EXISTING POSTS BY CATEGORY,MAJOR,1. REPEAT STEPS 1-4 FROM TC001,"VERIFY THAT THE TEXT ""sgpDemoPublishPost03"" APPEAR IN THE COLUMN Title"
-,,,"2. CLICK ON ""All Posts"" TEXT LINK",
-,,,"4. SELECT ""cetegotyDemo01"" FROM ""cat"" COMBOBOX",
-,,,"5. CLICK ON ""post-query-submit"" BUTTON",
+Test Case Design;;;;
+;;;;
+Project name:;Demosite;;;
+;;;;
+Scenario 01:;DemositeTestLogin;;;
+;;;;
+ID_TESTCASE;SUMMARY;PRIORITY;STEPS;EXPECTED RESULT
+TC001;;CRITICAL;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-login.php;SHOW THE LOG IN PAGE
+;;;"2. ENTER ""Admin"" TO USERNAME TEXT FIELD";"VERIFY VALUE ""Admin"" IS ON THE USERNAME TEXT FIELD"
+;;;"3. ENTER ""Demo123"" TO PASSWORD TEXT FIELD";"VERIFY VALUE ""Demo123"" IS ON THE PASSWORD TEXT FIELD"
+;;;"4. CLICK ON ""Log in"" BUTTON";VERIFY USERNAME AND PASSWORD IF THEY EXIST IN THE DATABASE
+;;;;
+;;;;
+Scenario 02:;DemositeTestPages;;;
+Author:;Erick Cajas Monier;;;
+;;;;
+ID_TESTCASE;SUMMARY;PRIORITY;STEPS;EXPECTED RESULT
+TC002;ADD DRAFT PAGES;CRITICAL;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page;"VERIFY THAT THE TEXT ""Pages Add New"" APPEAR"
+;;;"2. CLICK ON LINK ""Add New""";"VERIFY THAT THE TEXT ""Add New Page"" APPEAR"
+;;;"3. ENTER ""Page 1"" INTO TITLE TEXT FIELD";"VERIFY VALUE ""Page 1"" IS DISPLAYED ON THE TITLE TEXT FIELD"
+;;;"4. ENTER ""testing page 1 here"" INTO CONTENT TEXT FIELD";"VERIFY VALUE ""testing page 1 here"" IS DISPLAYED ON THE CONTENT TEXT FIELD"
+;;;"5. CLICK ON ""Save Draft"" BUTTON";"VERIFY THAT THE POP UP TEXT ""Page draft updated. Preview page"" APPEAR"
+;;;"6. CLICK ON MENU LINK ""Pages""";VERIFY IF THE DRAFT PAGE WAS CREATED
+;;;"7. CLICK ON LINK ""Drafts""";VERIFY IF THE DRAFT PAGE WAS CREATED AT DRAFT SECTION
+;;;;
+TC003;ADD PUBLISHED PAGES;CRITICAL;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page;"VERIFY THAT THE TEXT ""Pages Add New"" APPEAR"
+;;;"2. CLICK ON LINK ""Add New""";"VERIFY THAT THE TEXT ""Add New Page"" APPEAR"
+;;;"3. ENTER ""Post 2"" INTO TITLE TEXT FIELD";"VERIFY VALUE ""Post 2"" IS DISPLAYED ON THE TITLE TEXT FIELD"
+;;;"4. ENTER ""Testing post 2 here"" INTO CONTENT TEXT FIELD";"VERIFY VALUE ""Testing post 2 here"" IS DISPLAYED ON THE CONTENT TEXT FIELD"
+;;;"5. CLICK ON ""Publish"" BUTTON";"VERIFY THAT THE POP UP TEXT ""Page published. View page"" APPEAR"
+;;;"6. CLICK ON MENU LINK ""Pages""";VERIFY IF THE PUBLISH PAGE WAS CREATED
+;;;"7. CLICK ON LINK ""Published""";VERIFY IF THE PUBLISH PAGE WAS CREATED AT PUBLISHED SECTION
+;;;;
+TC004;FILTER PAGES BY DATE (JULY 2012);MAJOR;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page;"VERIFY THAT THE TEXT ""Pages Add New"" AND THE OPTION ""July 2012"" OF COMBOBOX ""Show all dates"" APPEAR"
+;;;"2. CLICK ON COMBOBOX ""Show all dates"" AND SELECT OPTION ""July 2012""";"VERIFY PAGE ""Sample Page"" APPEAR AND VERIFY DATE OF CREATION"
+;;;;
+TC005;EDIT PAGES;MAJOR;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page;"VERIFY THAT THE TEXT ""Pages Add New"" AND THE OPTION ""Edit"" OF COMBOBOX ""Bulk Actions"" APPEAR"
+;;;2. CLICK ON THE FIRST RADIOBUTTON;VERIFY IF THE RADIOBUTTON IS SELECTED
+;;;"3. CLICK ON COMBOBOX ""Bulk Actions"" AND SELECT OPTION ""Edit""";"VERIFY LABEL TEXT ""BULK EDIT"" APPEAR AND THE FORM"
+;;;"4. CLICK ON AUTHOR COMBOBOX AND SELECT OPTION ""admin""";VERIFY THE AUTHOR COMBOBOX IS CHANGED
+;;;"5. CLICK ON STATUS COMBOBOX AND SELECT OPTION ""Do not allow""";VERIFY THE STATUS COMBOBOX IS CHANGED
+;;;6. CLICK ON EDIT BUTTON;"VERIFY THAT THE POP UP TEXT ""1 post updated."" APPEAR"
+;;;;
+;;;;
+TC006;MOVE PAGES TO TRASH;MAJOR;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit.php?post_type=page;"VERIFY THAT THE TEXT ""Pages Add New"" AND THE OPTION ""Edit"" OF COMBOBOX ""Bulk Actions"" APPEAR"
+;;;2. CLICK ON THE FIRST RADIOBUTTON;VERIFY IF THE RADIOBUTTON IS SELECTED
+;;;"3. CLICK ON COMBOBOX ""Bulk Actions"" AND SELECT OPTION ""Move to trash""";"VERIFY THAT THE POP UP TEXT ""Item moved to the Trash. Undo"" APPEAR"
+;;;"4. CLICK ON LINK ""Trash""";VERIFY IF APPEAR THE SELECTED PAGE
+;;;"5. CLICK ON ""Empty Trash"" BUTTON";CLEAR TRASH
+;;;;
+;;;;
+Scenario 03:;DemositeTestPosts;;;
+Author:;Santiago Guillen Paredes;;;
+;;;;
+ID_TESTCASE;SUMMARY;PRIORITY;STEPS;EXPECTED RESULT
+TC007;SAVE NEW POST;CRITICAL;1. REPEAT STEPS 1-4 FROM TC001;"VERIFY THAT THE TEXT ""sgp demoPost02"" APPEAR IN THE COLUMN Title"
+;;;"2. ENTER ""sgp demoPost02"" TO ""title"" TEXT FIELD";
+;;;"3. ENTER ""this is the demo post 02"" TO ""content"" TEXT FIELD";
+;;;"4. CLICK ON ""save-post"" BUTTON";
+;;;"5. CLICK ON ""All Posts"" TEXT LINK";
+;;;6. CLICK ON DRAFTS TEXT LINK;
+;;;;
+TC008;PUBLISH NEW POST;CRITICAL;1. REPEAT STEPS 1-4 FROM TC001;"VERIFY THAT THE TEXT ""sgpDemoPublishPost03"" APPEAR IN THE COLUMN Title"
+;;;"2. ENTER ""sgpDemoPublishPost03"" TO ""title"" TEXT FIELD";
+;;;"3. ENTER ""this is the demo post 03"" TO ""content"" TEXT FIELD";
+;;;"4. CLICK ON ""publish"" BUTTON";
+;;;"5. CLICK ON ""All Posts"" TEXT LINK";
+;;;6. CLICK ON PUBLISHED TEXT LINK;
+;;;;
+TC009;CREATE NEW POST CATEGORY;CRITICAL;1. REPEAT STEPS 1-4 FROM TC001;"VERIFY THAT THE TEXT ""CategoryDemo01"" APPEAR IN THE COLUMN NAME"
+;;;"2. CLICK ON ""Categories"" TEXT LINK";
+;;;"3. ENTER ""CategoryDemo01"" TO ""tag-name"" TEXT FIELD";
+;;;"4. ENTER ""catdemo01"" TO ""tag-slug"" TEXT FIELD";
+;;;"5. SELECT ""None"" FROM ""parent"" COMBOBOX";
+;;;"6. ENTER ""this is the category demo 01"" TO ""tag-description"" TEXT FIELD";
+;;;"7. CLICK ON ""submit"" BUTTON";
+;;;;
+TC010;SEND EXISTING POST TO TRASH;MAJOR;1. REPEAT STEPS 1-4 FROM TC001;"VERIFY THAT THE TEXT ""Item moved to the Trash. Undo"" APPEAR IN CSS ELEMENT ""#message > p"""
+;;;"2. CLICK ON ""All Posts"" TEXT LINK";
+;;;3. CLICK ON FIRST RADIOBUTTON;
+;;;"4. SELECT ""Move to Trash"" FROM ""action"" COMBOBOX";
+;;;"5. CLICK ON ""doaction"" BUTTON";
+;;;;
+TC011;FILTER EXISTING POSTS BY CATEGORY;MAJOR;1. REPEAT STEPS 1-4 FROM TC001;"VERIFY THAT THE TEXT ""sgpDemoPublishPost03"" APPEAR IN THE COLUMN Title"
+;;;"2. CLICK ON ""All Posts"" TEXT LINK";
+;;;"4. SELECT ""cetegotyDemo01"" FROM ""cat"" COMBOBOX";
+;;;"5. CLICK ON ""post-query-submit"" BUTTON";
+;;;;
+;;;;
+Scenario 04:;DemositeTestLinks;;;
+Author:;Marcelo Milera Sánchez;;;
+;;;;
+ID_TESTCASE;SUMMARY;PRIORITY;STEPS;EXPECTED RESULT
+TC012;ADD NEW LINK;CRITICAL;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/link-add.php;"VERIFY TEXT ""Link added."" IS DISPLAYED"
+;;;"2. ENTER ""Test Link"" INTO NAME TEXT FIELD";
+;;;"3. ENTER ""http://wordpress.org/"" INTO WEB ADDRESS TEXT FIELD";
+;;;"4. ENTER ""This is a link for testing purposes"" INTO DESCRIPTION TEXT FIELD";
+;;;"5. CLICK ON ""Add Link"" BUTTON";
+;;;;
+;;;;
+;;;;
+TC013;UPDATE LINK;MAJOR;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/link-manager.php;"VERIFY VALUE ""Test Link Updated"" IS DISPLAYED ON NAME COLUMN"
+;;;"2. CLICK ON ""Test Link"" LINK";"VERIFY VALUE ""google.com"" IS DISPLAYED ON URL COLUMN"
+;;;"3. ENTER ""Test Link Updated"" INTO NAME TEXT FIELD";
+;;;"4. ENTER ""http://google.com/"" INTO WEB ADDRESS TEXT FIELD";
+;;;"5. ENTER ""This is link was updated"" INTO DESCRIPTION TEXT FIELD";
+;;;"6. CLICK ON ""Update Link"" BUTTON";
+;;;;
+;;;;
+TC014;ADD LINK CATEGORY;CRITICAL;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit-tags.php?taxonomy=link_category;"VERIFY VALUE ""Test Category"" IS DISPLAYED ON NAME COLUMN"
+;;;"2. ENTER ""Test Category"" INTO NAME TEXT FIELD";"VERIFY VALUE ""This is a link category for testing purposes."" IS DISPLAYED ON DESCRIPTION COLUMN"
+;;;"3. ENTER ""Test Category Slug"" INTO SLUG TEXT FIELD";"VERIFY VALUE ""Test Category Slug"" IS DISPLAYED ON SLUG COLUMN"
+;;;"4. ENTER ""This is a link category for testing purposes."" INTO DESCRIPTION TEXT FIELD";
+;;;"5. CLICK ON ""Add New Link Category"" BUTTON";
+;;;;
+;;;;
+TC015;SEARCH LINKS;MAJOR;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/link-manager.php;"VERIFY ROW ""TEST LINK"" IS DISPLAYED"
+;;;"2. ENTER ""Test Link"" INTO SEARCH LINKS TEXT FIELD";
+;;;3. CLICK ON SEARCH LINKS BUTTON;
+;;;;
+;;;;
+TC016;DELETE LINK CATEGORIES;MAJOR;1. LOAD WEBPAGE: http://demosite.center/wordpress/wp-admin/edit-tags.php?taxonomy=link_category;"VERIFY THE ITEMS COUNT NUMBER IS ""1"""
+;;;2. CLICK ON THE FIRST CHECKBOX;
+;;;"3. CHOOSE ""Delete"" ON ACTIONS LIST BOX";
+;;;"4. CLICK ON ""Apply"" BUTTON";

@@ -82,7 +82,7 @@ public class DemositeTestLinks extends DemositeTestLogin{
         login();
 
         // Add New Category
-        demositeLinkPage.addNewCategory("Test Category", "Category", "This is a link category for testing purposes.");
+        demositeLinkPage.addNewCategory("Test Category", "Test Category Slug", "This is a link category for testing purposes.");
 
         // Verify expected results
         try {
